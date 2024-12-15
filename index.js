@@ -1,15 +1,56 @@
 const express = require('express');
-const crypto = require("crypto-js");
-const Web3 = require('web3');
-const app = express()
-const port = 3000
+const Block = require('./blockchain/Block.js');
+const Chain = require('./blockchain/Chain.js');
 
+const app = express();
+const port = 3000;
+
+// // Set EJS as the view engine
+// app.set('view engine', 'ejs');
+
+// Use JSON middleware for POST requests
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World everyone!')
-})
+// Initialize blockchain
+let chain = new Chain();
 
+// Route for the homepage (index.ejs)
+app.get('/', (req, res) => {
+    res.send("blockchain home page");
+});
+
+// Route to add a block to the chain
+app.post('/addBlock', (req, res) => {
+    const { data } = req.body; // Extract only the data from the request body
+
+    if (!data) {
+        return res.status(400).send("Data is required to create a new block");
+    }
+
+    // Create a new block using the Chain's methods
+    const newBlock = new Block(
+        chain.getLatestBlock().index + 1, 
+        Date.now(), 
+        data, 
+        chain.getLatestBlock().hash
+    );
+
+    chain.addBlock(newBlock);
+
+    // Respond with the newly added block
+    res.status(200).json({
+        message: "Block added to the chain successfully",
+        block: newBlock
+    });
+});
+
+
+// Route to get the entire blockchain
+app.get('/getChain', (req, res) => {
+    res.status(200).send(chain.chain );
+});
+
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Blockchain API running on port: ${port}`);
+});

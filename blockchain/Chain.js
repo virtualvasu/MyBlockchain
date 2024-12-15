@@ -1,4 +1,4 @@
-const Block = require('./Block');
+const Block = require('./Block.js');
 
 class Chain {
     createGenesisBlock() {
@@ -24,7 +24,6 @@ class Chain {
         if (JSON.stringify(this.chain[0]) !== JSON.stringify(this.createGenesisBlock())) {
             return false;
         }
-
 
         for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
