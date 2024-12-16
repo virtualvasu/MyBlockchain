@@ -9,7 +9,7 @@ const GetLatestBlock = () => {
   useEffect(() => {
     const fetchLatestBlock = async () => {
       try {
-        const response = await axios.get("http://localhost:3005/getLatestBlock");
+        const response = await axios.get("https://myblockchain-backend.onrender.com/getLatestBlock");
         setLatestBlock(response.data);
       } catch (err) {
         setError("Failed to fetch the latest block. Please try again.");

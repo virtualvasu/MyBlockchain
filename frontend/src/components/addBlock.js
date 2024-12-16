@@ -22,7 +22,7 @@ const AddBlock = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post("http://localhost:3005/addBlock", {
+            const response = await axios.post("https://myblockchain-backend.onrender.com/addBlock", {
                 data: blockData,
             });
 
