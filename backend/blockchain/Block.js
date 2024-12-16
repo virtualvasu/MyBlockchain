@@ -15,7 +15,7 @@ class Block {
         this.data = data;
         this.prevHash = prevHash;
         this.hash = this.calcHash();
-        //Object.freeze(this); // imposes immutability on each block
+        
     }
 
     calcHash() {
