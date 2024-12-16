@@ -1,9 +1,13 @@
 const express = require('express');
 const Block = require('./blockchain/Block.js');
 const Chain = require('./blockchain/Chain.js');
+const cors = require("cors");
+
+
 
 const app = express();
-const port = 3000;
+app.use(cors());
+const port = 3005;
 
 // // Set EJS as the view engine
 // app.set('view engine', 'ejs');
@@ -49,6 +53,11 @@ app.post('/addBlock', (req, res) => {
 app.get('/getChain', (req, res) => {
     res.status(200).send(chain.chain );
 });
+
+app.get('/getLatestBlock', (req,res)=>{
+
+    res.status(200).send(chain.getLatestBlock());
+})
 
 // Start the server
 app.listen(port, () => {
