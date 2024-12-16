@@ -1,6 +1,6 @@
 # MyBlockchain - Blockchain Network Project
 
-This project implements a basic blockchain network using JavaScript. It follows blockchain principles like immutability, data integrity, and linking blocks with hashes. The project also includes a React.js frontend to interact with the blockchain via APIs.
+This project implements a basic blockchain network using JavaScript. It follows blockchain principles like immutability, data integrity, and linking blocks with hashes. The project includes a user-friendly website to interact with the blockchain.
 
 ## Features
 
@@ -12,12 +12,12 @@ This project implements a basic blockchain network using JavaScript. It follows 
 
 - **SHA256 Hashing**: Blocks are linked using SHA256 hashing to ensure data integrity.
 
-- **Express.js Backend**: API endpoints for:
+- **API-Driven Backend**: The blockchain network is powered by APIs for:
   - Adding blocks.
   - Viewing the blockchain.
   - Fetching the latest block.
 
-- **React.js Frontend**: Provides a user interface to interact with the blockchain via the API.
+- **React.js Frontend**: Provides a user-friendly interface to interact with the blockchain via the API.
 
 ## Technologies Used
 
@@ -26,7 +26,17 @@ This project implements a basic blockchain network using JavaScript. It follows 
 - **Express.js**: For building the backend API.
 - **React.js**: For the frontend interface.
 
-## API Endpoints
+## How to Use
+
+Visit the website to interact with the blockchain network:
+[**MyBlockchain Website**]([https://your-hosted-website.com](https://myblockchain-frontend.onrender.com/))
+
+### Available Features:
+1. **Add a Block**: Submit data to create a new block in the blockchain.
+2. **View the Blockchain**: View the entire blockchain and its details.
+3. **Get the Latest Block**: Fetch details of the most recently added block.
+
+## API Endpoints (for Developers)
 
 1. **POST /addBlock**  
    Adds a new block.  
@@ -41,31 +51,8 @@ This project implements a basic blockchain network using JavaScript. It follows 
    Retrieves the latest block.  
    - Response: JSON object of the latest block.
 
-## Running the Project
+## Deployment
 
-### Backend (Express.js)
+The project is hosted online, so there's no need for users to install dependencies or run local servers. Just visit the website to start using the blockchain network.
 
-1. Clone the repo.
-2. Install dependencies:
-   ```bash
-   cd backend
-   npm install
-   ```
-3. Start the server:
-   ```bash
-   npm start
-   ```
-   The backend will be available at `http://localhost:3005`.
-
-### Frontend (React.js)
-
-1. Install dependencies:
-   ```bash
-   cd frontend
-   npm install
-   ```
-2. Start the React server:
-   ```bash
-   npm start
-   ```
-   The frontend will be available at `http://localhost:3000`.
+---
