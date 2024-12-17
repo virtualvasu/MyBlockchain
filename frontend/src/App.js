@@ -20,19 +20,19 @@ const App = () => {
   };
 
   return (
-    <div className="App bg-gray-100 min-h-screen flex flex-col items-center justify-start p-4">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4"> <b>MyBlockchain</b> </h1>
+    <div className="App bg-gray-100 min-h-screen flex flex-col items-center justify-start p-6">
+      <h1 className="text-3xl font-extrabold text-gray-800 mb-6 text-center"> <b>MyBlockchain</b> </h1>
 
       {/* Intro Component */}
-      <div className="mb-4">
+      <div className="mb-6 w-full max-w-md">
         <Intro />
       </div>
 
       {/* Buttons for interacting with blockchain */}
-      <div className="flex space-x-2 mb-4">
+      <div className="flex flex-col space-y-4 mb-6 w-full max-w-md">
         {/* Add Block Button */}
         <button
-          className="bg-blue-600 text-white font-semibold py-1.5 px-4 rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+          className="bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-200 text-lg"
           onClick={handleAddBlock}
         >
           Add Block
@@ -40,7 +40,7 @@ const App = () => {
 
         {/* Get Latest Block Button */}
         <button
-          className="bg-green-600 text-white font-semibold py-1.5 px-4 rounded-lg shadow-md hover:bg-green-700 transition duration-200"
+          className="bg-green-600 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:bg-green-700 transition duration-200 text-lg"
           onClick={toggleLatestBlock}
         >
           {activeComponent === "GetLatestBlock" ? "Hide Latest Block" : "Get Latest Block"}
@@ -48,7 +48,7 @@ const App = () => {
 
         {/* View Chain Button */}
         <button
-          className="bg-purple-600 text-white font-semibold py-1.5 px-4 rounded-lg shadow-md hover:bg-purple-700 transition duration-200"
+          className="bg-purple-600 text-white font-semibold py-4 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition duration-200 text-lg"
           onClick={toggleChain}
         >
           {activeComponent === "Chain" ? "Hide Chain" : "View Chain"}
@@ -56,7 +56,7 @@ const App = () => {
       </div>
 
       {/* Conditionally Render Components */}
-      <div className="mt-0">
+      <div className="mt-6 w-full max-w-md">
         {activeComponent === "GetLatestBlock" && <GetLatestBlock />}
         {activeComponent === "AddBlock" && <AddBlock />}
         {activeComponent === "Chain" && <Chain />}
