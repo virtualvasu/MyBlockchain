@@ -22,51 +22,54 @@ const GetLatestBlock = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center text-blue-600">Loading...</div>;
+    return <div className="text-center text-blue-600 text-lg">Loading...</div>;
   }
 
   if (error) {
-    return <div className="text-center text-red-600">{error}</div>;
+    return <div className="text-center text-red-600 text-lg">{error}</div>;
   }
 
   return (
-    <div className="latest-block bg-gray-100 min-h-screen flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Latest Block</h1>
+    <div className="latest-block bg-gray-100 min-h-screen flex flex-col items-center px-2 py-4 sm:px-4">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 text-center">
+        Latest Block
+      </h1>
       {latestBlock ? (
-        <div className="block-card w-full max-w-2xl bg-white border border-gray-300 rounded-lg shadow-lg p-6">
-          <div className="mb-4">
-            <p className="text-lg font-semibold text-gray-700">
+        <div className="block-card w-full max-w-screen-sm bg-white border border-gray-300 rounded-lg shadow-lg p-4 overflow-hidden">
+          <div className="mb-3">
+            <p className="text-sm font-semibold text-gray-700">
               <span className="text-blue-600">Block Index:</span> {latestBlock.index}
             </p>
           </div>
-          <div className="mb-4">
-            <p className="text-lg font-semibold text-gray-700">
-              <span className="text-blue-600">Block Timestamp:</span> {new Date(latestBlock.timestamp).toLocaleString()}
+          <div className="mb-3">
+            <p className="text-sm font-semibold text-gray-700">
+              <span className="text-blue-600">Block Timestamp:</span>{" "}
+              {new Date(latestBlock.timestamp).toLocaleString()}
             </p>
           </div>
-          <div className="mb-4">
-            <p className="text-lg font-semibold text-gray-700">
+          <div className="mb-3">
+            <p className="text-sm font-semibold text-gray-700">
               <span className="text-blue-600">Previous Hash:</span>
             </p>
-            <p className="text-sm font-mono text-gray-600 break-words">{latestBlock.prevHash}</p>
+            <p className="text-xs font-mono text-gray-600 break-all">{latestBlock.prevHash}</p>
           </div>
-          <div className="mb-4">
-            <p className="text-lg font-semibold text-gray-700">
+          <div className="mb-3">
+            <p className="text-sm font-semibold text-gray-700">
               <span className="text-blue-600">Hash:</span>
             </p>
-            <p className="text-sm font-mono text-gray-600 break-words">{latestBlock.hash}</p>
+            <p className="text-xs font-mono text-gray-600 break-all">{latestBlock.hash}</p>
           </div>
-          <div className="mb-4">
-            <p className="text-lg font-semibold text-gray-700">
+          <div className="mb-3">
+            <p className="text-sm font-semibold text-gray-700">
               <span className="text-blue-600">Data:</span>
             </p>
-            <p className="text-sm text-gray-800 bg-blue-100 p-3 rounded-md whitespace-pre-wrap">
+            <p className="text-xs text-gray-800 bg-blue-100 p-2 rounded-md break-all">
               {latestBlock.data}
             </p>
           </div>
         </div>
       ) : (
-        <p className="text-gray-700">No block data available.</p>
+        <p className="text-gray-700 text-sm">No block data available.</p>
       )}
     </div>
   );
